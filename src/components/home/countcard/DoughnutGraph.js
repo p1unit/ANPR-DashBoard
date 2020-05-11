@@ -44,7 +44,7 @@ class DoughnutGraph extends Component {
         <div className="flex-container-row" style={{padding:"10px"}}>
             Total Count : 370
         </div>
-        <Pie
+        <Doughnut
           width={350}
           height={300}
           options={this.options}
