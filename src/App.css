@@ -145,4 +145,22 @@ li a.dropdown-toggle::after {
   
 }
 
+.custom-header{
+  margin-bottom: 20px;
+}
 
+.flex-container-coloum {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-container-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}

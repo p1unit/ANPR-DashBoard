@@ -40,7 +40,7 @@ class SideBar extends React.Component {
           <p className="ml-3">Services Board</p>
 
           <Nav.Item className="active">
-            <Nav.Link href="/">
+            <Nav.Link href="/home">
               <FontAwesomeIcon icon={faHome} className="mr-2" />
               Home
             </Nav.Link>
