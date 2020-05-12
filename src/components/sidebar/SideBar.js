@@ -47,7 +47,7 @@ class SideBar extends React.Component {
           </Nav.Item>
 
           <Nav.Item>
-            <Nav.Link href="/">
+            <Nav.Link href="/addVehicle">
               <FontAwesomeIcon icon={faBriefcase} className="mr-2" />
               Add Vehicle
             </Nav.Link>

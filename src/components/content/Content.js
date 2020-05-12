@@ -3,7 +3,8 @@ import classNames from "classnames";
 import { Container } from "react-bootstrap";
 import NavBar from "./Navbar";
 import AllVehicle from '../search/AllVehicle';
-import HomeComponent from '../home/HomeComponent';
+import AddVehicle from '../addvechicle/AddVehicle';
+import HomeComponent from "../home/HomeComponent";
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -18,6 +19,7 @@ class Content extends React.Component {
         <Router>
           <Switch>
             <Route exact path = '/home' component ={HomeComponent}></Route>
+            <Route exact path = '/addVehicle' component ={AddVehicle}></Route>
           </Switch>
         </Router>
 

@@ -7,7 +7,7 @@ class CounterInfoCard extends Component {
   state = {};
   render() {
     return (
-      <div>
+      <div className="flex-container-add-vehicle-column">
         <div className="flex-container-line">
           <Card border="primary">
             <Card.Header style={{ textAlign: "center", padding: "5px" }}>
@@ -37,18 +37,40 @@ class CounterInfoCard extends Component {
           </Card>
         </div>
 
-        <div className="flex-container-row"></div>
+        <div className="flex-container-row">
+          <Card border="primary" style={{ width: "18rem", margin: "10px" }}>
+            <Card.Header style={{ textAlign: "center", padding: "5px" }}>
+              Last 30 Days Count
+            </Card.Header>
+            <Card.Body>
+              <Card.Title style={{ textAlign: "center", padding: "5px" }}>
+                Total Visited 3799
+              </Card.Title>
+            </Card.Body>
+          </Card>
 
-        <Card border="primary" style={{ width: "18rem", marginTop: "10px"}}>
-          <Card.Header style={{ textAlign: "center", padding: "5px" }}>
-            Last 30 Days Count
-          </Card.Header>
-          <Card.Body>
-            <Card.Title style={{ textAlign: "center", padding: "5px" }}>
-              Total Visited 3799
-            </Card.Title>
-          </Card.Body>
-        </Card>
+          <Card border="primary" style={{ width: "18rem", margin: "10px" }}>
+            <Card.Header style={{ textAlign: "center", padding: "5px" }}>
+              Daily Average Visitor
+            </Card.Header>
+            <Card.Body>
+              <Card.Title style={{ textAlign: "center", padding: "5px" }}>
+                2320
+              </Card.Title>
+            </Card.Body>
+          </Card>
+
+          <Card border="primary" style={{ width: "18rem", margin: "10px" }}>
+            <Card.Header style={{ textAlign: "center", padding: "5px" }}>
+              Monthly Average Visitor
+            </Card.Header>
+            <Card.Body>
+              <Card.Title style={{ textAlign: "center", padding: "5px" }}>
+                1890
+              </Card.Title>
+            </Card.Body>
+          </Card>
+        </div>
       </div>
     );
   }

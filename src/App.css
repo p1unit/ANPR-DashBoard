@@ -151,10 +151,10 @@ li a.dropdown-toggle::after {
 
 .flex-container-coloum {
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .flex-container-row {
@@ -171,3 +171,20 @@ li a.dropdown-toggle::after {
   justify-content: center;
   align-items: center;
 }
+
+.flex-container-uploader-card {
+  display: flex;
+  /* flex:1; */
+  flex-direction: row;
+
+}
+
+.item {
+  flex-basis: 100%;
+  text-align: center;
+  /* border: 1px solid black; */
+}
+
+/* .flex-container-uploader-card-child {
+
+} */
