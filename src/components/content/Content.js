@@ -2,11 +2,11 @@ import React from "react";
 import classNames from "classnames";
 import { Container } from "react-bootstrap";
 import NavBar from "./Navbar";
-import AllVehicle from '../search/AllVehicle';
-import AddVehicle from '../addvechicle/AddVehicle';
+import AllVehicle from "../search/AllVehicle";
+import AddVehicle from "../addvechicle/AddVehicle";
 import HomeComponent from "../home/HomeComponent";
 
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class Content extends React.Component {
   render() {
@@ -18,11 +18,11 @@ class Content extends React.Component {
         <NavBar toggle={this.props.toggle} />
         <Router>
           <Switch>
-            <Route exact path = '/home' component ={HomeComponent}></Route>
-            <Route exact path = '/addVehicle' component ={AddVehicle}></Route>
+            <Route exact path="/home" component={HomeComponent}></Route>
+            <Route exact path="/addVehicle" component={AddVehicle}></Route>
+            <Route exact path="/allSearch" component={AllVehicle}></Route>
           </Switch>
         </Router>
-
       </Container>
     );
   }

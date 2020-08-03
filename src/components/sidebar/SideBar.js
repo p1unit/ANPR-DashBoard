@@ -10,7 +10,6 @@ import {
   faCopy,
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
-import SubMenu from "./SubMenu";
 import { Nav, Button } from "react-bootstrap";
 import classNames from "classnames";
 
@@ -53,11 +52,19 @@ class SideBar extends React.Component {
             </Nav.Link>
           </Nav.Item>
 
-          <SubMenu
-            title="Search"
-            icon={faCopy}
-            items={["Single Vehicle", "All Vehicle"]}
-          />
+          <Nav.Item>
+            <Nav.Link href="/allSearch">
+              <FontAwesomeIcon icon={faBriefcase} className="mr-2" />
+              All vehicle Search
+            </Nav.Link>
+          </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link href="/singleSearch">
+              <FontAwesomeIcon icon={faBriefcase} className="mr-2" />
+              Single Vehicle Search
+            </Nav.Link>
+          </Nav.Item>
 
           <Nav.Item>
             <Nav.Link href="/">
@@ -65,7 +72,6 @@ class SideBar extends React.Component {
               About
             </Nav.Link>
           </Nav.Item>
-
 
           <Nav.Item>
             <Nav.Link href="/">
@@ -87,7 +93,6 @@ class SideBar extends React.Component {
               Developers
             </Nav.Link>
           </Nav.Item>
-
         </Nav>
       </div>
     );

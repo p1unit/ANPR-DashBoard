@@ -2,10 +2,48 @@ import React, { Component } from "react";
 import Card from "react-bootstrap/Card";
 import DoughnutGraph from "./DoughnutGraph";
 import LineGraph from "./LineGraph";
+import API from '../../../resources/API';
+
 
 class CounterInfoCard extends Component {
-  state = {};
+  
+  constructor(props) {
+    super(props);
+
+  }
+
+
+  state = { 
+    loading : true,
+    // data : {
+    //   typeCountList:{},
+    // }  
+ }
+
+componentDidMount() {
+
+    var res;
+
+    API.get("basicInfo")    
+    .then(res=>{
+        const basicData = res.data;
+        res = res.data;
+        this.setState({ 
+            data:basicData ,
+            loading:false
+        });
+        console.log(this.state);
+    });
+  }
+
+
   render() {
+
+    if(this.state.data==null)
+        return (<h1>Loading</h1>)
+
+    console.log(this.state.data);
+
     return (
       <div className="flex-container-add-vehicle-column">
         <div className="flex-container-line">
@@ -23,7 +61,7 @@ class CounterInfoCard extends Component {
               Todays Visited
             </Card.Header>
             <Card.Body style={{ padding: "0px" }}>
-              <DoughnutGraph />
+              <DoughnutGraph data = {this.state.data.insideTypeCountList}/>
             </Card.Body>
           </Card>
 
@@ -32,7 +70,7 @@ class CounterInfoCard extends Component {
               Currently Inside
             </Card.Header>
             <Card.Body style={{ padding: "0px" }}>
-              <DoughnutGraph />
+            <DoughnutGraph data = {this.state.data.typeCountList}/>
             </Card.Body>
           </Card>
         </div>
@@ -44,14 +82,14 @@ class CounterInfoCard extends Component {
             </Card.Header>
             <Card.Body>
               <Card.Title style={{ textAlign: "center", padding: "5px" }}>
-                Total Visited 3799
+              Last 1 Day visitors
               </Card.Title>
             </Card.Body>
           </Card>
 
           <Card border="primary" style={{ width: "18rem", margin: "10px" }}>
             <Card.Header style={{ textAlign: "center", padding: "5px" }}>
-              Daily Average Visitor
+            Last 7 Days visitors
             </Card.Header>
             <Card.Body>
               <Card.Title style={{ textAlign: "center", padding: "5px" }}>
@@ -62,7 +100,7 @@ class CounterInfoCard extends Component {
 
           <Card border="primary" style={{ width: "18rem", margin: "10px" }}>
             <Card.Header style={{ textAlign: "center", padding: "5px" }}>
-              Monthly Average Visitor
+              Last 30 Days visitors
             </Card.Header>
             <Card.Body>
               <Card.Title style={{ textAlign: "center", padding: "5px" }}>
