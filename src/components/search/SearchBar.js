@@ -1,21 +1,64 @@
 import React, { Component } from "react";
+import { Card, Button } from "react-bootstrap"; 
 import Datetime from "react-datetime";
+const moment = require("moment");
 
 class SearchBar extends Component {
   state = {
-    vehicleType: "CAR",
+    vehicleType: "null",
+    startDate: null,
+    endDate: null,
+    vehicleChange : null,
+    inside:"null"
   };
 
   constructor(props) {
     super(props);
 
     this.vehicleChange = this.vehicleChange.bind(this);
+    this.handleStartDateChange = this.handleStartDateChange.bind(this);
+    this.handleEndDateChange = this.handleEndDateChange.bind(this);
+    this.changeVehicleStatus = this.changeVehicleStatus.bind(this);
+  }
+
+  passData = () => {
+      const params = {
+        "startDate":this.state.startDate,
+        "endDate" : this.state.endDate
+      }
+
+      if(this.state.inside!="null"){
+        params["inside"] = this.state.inside;
+      }
+       
+      if(this.state.vehicleType!="null"){
+        params["vehicleType"] = this.state.vehicleType;  
+      }
+
+      // console.log(params);
+
+      this.props.getSearchResult(params);
+  }
+
+  handleEndDateChange(newDate) {
+
+    this.setState({ endDate: moment.utc(newDate).format() });
+    console.log(moment.utc(newDate).utcOffset(+330).format());
+  }
+
+  handleStartDateChange(newDate) {
+    this.setState({ startDate: moment.utc(newDate).format() });
+    console.log(moment.utc(newDate).utcOffset(+330).format());
+  }
+
+  changeVehicleStatus(value) {
+    this.setState({ inside: value });
+    console.log(value);
   }
 
   vehicleChange(value) {
-    console.log("hello");
     this.setState({ vehicleType: value });
-    this.props.changeVehicleType(value);
+    console.log(value);
   }
 
   render() {
@@ -23,15 +66,15 @@ class SearchBar extends Component {
       <div style={{ display: "flex", flexDirection: "row" }}>
         <p>StartDateTime:</p>
         <Datetime
-          onChange={this.props.handleStartDateChange}
+          onChange={this.handleStartDateChange}
           dateFormat="YYYY-MM-DD"
-          style={{ width: "10%" }}
+          style={{ width: "20%" }}
         />
 
         <div style={{ display: "flex", flexDirection: "row", width: "100%" }}>
           <p>EndDateTime:</p>
           <Datetime
-            onChange={this.props.handleEndDateChange}
+            onChange={this.handleEndDateChange}
             dateFormat="YYYY-MM-DD"
             style={{ width: "10%" }}
           />
@@ -44,7 +87,7 @@ class SearchBar extends Component {
             id="vehicleStatus"
             className="form-control"
             onChange={(e) => {
-              this.props.changeVehicleStatus(e.target.value);
+              this.changeVehicleStatus(e.target.value);
             }}
           >
             <option value="null">All</option>
@@ -70,6 +113,9 @@ class SearchBar extends Component {
             <option value="TRUCK">Truck</option>
             <option value="OTHER">Other</option>
           </select>
+          <Button variant="primary" size="lg" block onClick={()=>this.passData()}>
+                Submit
+              </Button>
         </div>
       </div>
     );

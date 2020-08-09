@@ -5,9 +5,9 @@ import preview from "../../resources/preview.jpg";
 class PlateDetector extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      licensePlate: null,
-    };
+    // this.state = {
+    //   licensePlate: null,
+    // };
     this.handleTextChange = this.handleTextChange.bind(this);
   }
 
@@ -23,10 +23,10 @@ class PlateDetector extends Component {
                 {"LicensePlate Preview"}
               </p>
 
-              {this.state.licensePlate ? (
+              {this.props.plateDected ? (
                 <img
                   alt=""
-                  src={this.state.licensePlate}
+                  src={this.props.fileName}
                   width="100%"
                   height="100%"
                   style={{ maxHeight: "150px", border: "1px solid black" }}

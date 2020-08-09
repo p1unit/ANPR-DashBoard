@@ -89,7 +89,7 @@ class DoughnutGraph extends Component {
 
     if(this.state.data==null)
       return ( <h1>Loading</h1> );
-
+    
     return (
       <div>
         <div className="flex-container-row" style={{padding:"10px"}}>

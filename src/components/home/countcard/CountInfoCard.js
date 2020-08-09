@@ -78,11 +78,11 @@ componentDidMount() {
         <div className="flex-container-row">
           <Card border="primary" style={{ width: "18rem", margin: "10px" }}>
             <Card.Header style={{ textAlign: "center", padding: "5px" }}>
-              Last 30 Days Count
+              Last 1 Days Count
             </Card.Header>
             <Card.Body>
               <Card.Title style={{ textAlign: "center", padding: "5px" }}>
-              Last 1 Day visitors
+              {this.state.data.last1DayVisitor}
               </Card.Title>
             </Card.Body>
           </Card>
@@ -93,7 +93,7 @@ componentDidMount() {
             </Card.Header>
             <Card.Body>
               <Card.Title style={{ textAlign: "center", padding: "5px" }}>
-                2320
+              {this.state.data.last7DayVisitor}
               </Card.Title>
             </Card.Body>
           </Card>
@@ -104,7 +104,7 @@ componentDidMount() {
             </Card.Header>
             <Card.Body>
               <Card.Title style={{ textAlign: "center", padding: "5px" }}>
-                1890
+                {this.state.data.last30DayVisitor}
               </Card.Title>
             </Card.Body>
           </Card>
