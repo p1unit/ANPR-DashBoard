@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Card from "react-bootstrap/Card";
 import ImageUploader from "./ImageUploader";
 import PlateDetector from "./PlateDetector";
+import Axios from "axios";
 
 class AddVehicle extends Component {
 
@@ -11,16 +12,7 @@ class AddVehicle extends Component {
       plateDected:false,
       fileName:""
     };
-    this.onUploadSuccess = this.onUploadSuccess.bind(this);
-  }
-
-  onUploadSuccess(fileName){
-
-    this.setState({
-      plateDected:true,
-      fileName:fileName
-    });
-
+    
   }
 
   render() {
@@ -29,9 +21,9 @@ class AddVehicle extends Component {
         <div className = "item">
           <ImageUploader onUploadSuccess={this.onUploadSuccess}/>
         </div>
-        <div className = "item">
+        {/* <div className = "item">
         <PlateDetector  plateDected = {this.plateDected} fileName ={this.fileName}/>
-        </div>
+        </div> */}
       </div>
     );
   }

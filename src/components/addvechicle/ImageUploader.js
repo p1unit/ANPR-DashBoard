@@ -13,21 +13,17 @@ class ImageUploader extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleError = this.handleError.bind(this);
-    this.handleUpload = this.handleUpload.bind(this);
+    // this.handleUpload = this.handleUpload.bind(this);
   }
 
-  handleUpload(){
+  handleUpload = ()=>{
 
     let blobUri = 'https://' + 'anprimages' + '.blob.core.windows.net';
-    let SAS = '?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2020-08-07T11:10:20Z&st=2020-08-07T03:10:20Z&spr=https,http&sig=aE7gfC5o3DFMl5T5GOGAga9DMa1VRA%2BgMnos3pAY9Bw%3D';
+    let SAS = '?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2020-09-16T16:03:57Z&st=2020-08-16T08:03:57Z&spr=https&sig=pRMcbSiyAtMXAohumIMCGepQgvwErSbHpFnWCuNnoxQ%3D';
     var finishedOrError = false;
     let containerName = 'vehicle';
     var blobService = AzureStorage.createBlobServiceWithSas(blobUri,SAS);
-
-    // var file = document.getElementById('fileinput').files[0];
     var file = this.refs['fileinput'].files[0];
-    // console.log(this.state.file.name);
-    // console.log(this.state.file.webkitRelativePath);
     
 
     blobService.createBlockBlobFromBrowserFile(containerName, file.name, file, {blockSize : file.size}, function(error, result, response) {
@@ -35,9 +31,10 @@ class ImageUploader extends Component {
       if (error) {
           alert("Upload Failed :"+error);
       } else {
-          this.props.onUploadSuccess(file.name);
+        alert("Upload Successful");
+          // this.props.onUploadSuccess(file.name);
       }
-  })
+  });
 
   }
 
@@ -55,6 +52,9 @@ class ImageUploader extends Component {
   handleError(event) {}
 
   render() {
+
+    console.log(this.props);
+
     return (
       <div>
         <Card border style={{ marginRight: "10px" }}>
