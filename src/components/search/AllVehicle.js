@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Card from "react-bootstrap/Card";
 import API from '../../resources/API';
+import Loader from "../../resources/loader"
 
 import SearchBar from "./SearchBar";
 import StickyHeadTable from "../table/VehicleTable"
@@ -50,7 +51,7 @@ class AllVehicle extends Component {
           {this.state.rows!=null ? (
                 <StickyHeadTable rows = {this.state.rows}/>
               ) : (
-                <div> Hello </div>
+                <Loader></Loader>
               )}
         </Card.Body>
       </Card>

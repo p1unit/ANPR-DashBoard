@@ -1,6 +1,6 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import logo from "../../logo.png";
+
+
 import {
   faHome,
   faBriefcase,
@@ -60,9 +60,9 @@ class SideBar extends React.Component {
           </Nav.Item>
 
           <Nav.Item>
-            <Nav.Link href="/singleSearch">
+            <Nav.Link href="/pendingVehicle">
               <FontAwesomeIcon icon={faBriefcase} className="mr-2" />
-              Single Vehicle Search
+              Pending Status
             </Nav.Link>
           </Nav.Item>
 

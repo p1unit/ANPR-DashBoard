@@ -1,14 +1,77 @@
 import React, { Component } from 'react';
 import PendingRow from './pendingRow';
+import API from '../../resources/API';
 
 class PendingComponent extends Component {
-    state = {  }
 
+    constructor(props) {
+        super(props);
+       this.handleUpdate = this.handleUpdate.bind(this);
+      }
+
+    state = { 
+        loading:true
+     }
+
+    componentDidMount() {
+        
+        API.get("getAllPending")    
+        .then(res=>{
+            const response = res.data;
+            this.setState({ 
+                data:response ,
+                loading:false
+            });
+            console.log(this.state);
+            console.log("hi");
+        });
+        
+        // console.log("hi");
+    }
+
+    handleUpdate(){
+
+        this.setState({loading:true});
+
+        API.get("getAllPending")    
+        .then(res=>{
+            const response = res.data;
+            this.setState({ 
+                data:response ,
+                loading:false
+            });
+            console.log(this.state);
+        });
+
+        console.log("debug");
+
+    }
 
 
     render() { 
-        return ( 
-            <PendingRow></PendingRow>
+
+        return (
+            <div>
+            {
+                this.state.loading ? 
+                (<div> Loading </div>) :
+
+                <div style={{ display: "flex", flexDirection: "row",flexWrap:"wrap",justifyContent:"center" }}>
+                    {   this.state.data.map((variant, idx) => (
+                    <PendingRow 
+                        key = {idx}
+                        id = {variant.id}
+                        licenseNumber = {variant.licenseNumber}
+                        inTime = {variant.inTime}
+                        inImageUrl = {variant.inImageUrl}
+                        vehicleType = {variant.vehicleType}
+                        handleUpdate = {this.handleUpdate}
+                    >
+
+                    </PendingRow>))}
+                </div>
+                }
+            </div>
          );
     }
 }

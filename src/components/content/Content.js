@@ -5,7 +5,7 @@ import NavBar from "./Navbar";
 import AllVehicle from "../search/AllVehicle";
 import AddVehicle from "../addvechicle/AddVehicle";
 import HomeComponent from "../home/HomeComponent";
-
+import PendingComponent from "../pendingVehicles/pendingComponent";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 class Content extends React.Component {
@@ -37,6 +37,7 @@ return (
         <PrivateRoute exact path='/home' component={HomeComponent}/>
         <PrivateRoute exact path="/addVehicle" component={AddVehicle}/>
         <PrivateRoute exact path="/allSearch" component={AllVehicle}/>
+        <PrivateRoute exact path="/pendingVehicle" component={PendingComponent}/>
       </Switch>
     </Router>
   </Container>
