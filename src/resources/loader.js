@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import loader from "../../loader.png";
+import loader from "../loader.svg";
 
 class Loader extends Component {
     state = {  }
     render() { 
         return ( 
-            <div>
+            <div style={{ display: "flex", flexDirection: "row",flexWrap:"wrap",justifyContent:"center" }}>
                 <img
                   alt=""
                   src={loader}
                   width="100%"
                   height="100%"
-                  style={{ maxHeight: "350px", border: "1px solid black" }}
+                  style={{ maxHeight: "200px", maxWidth:"200px" , marginTop:"20px" }}
                 />
             </div>
          );

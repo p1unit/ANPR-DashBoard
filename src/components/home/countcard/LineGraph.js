@@ -4,7 +4,7 @@ import { Line } from "react-chartjs-2";
 class LineGraph extends Component {
   state = {
     data: {
-      labels: ["January", "February", "March", "April", "May", "June", "July"],
+      labels: ["Day 7", "Day 6", "Day 5", "Day 4", "Day 3", "Day 2", "Day 1"],
       datasets: [
         {
           label: "CAR",

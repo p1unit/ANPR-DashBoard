@@ -48,7 +48,7 @@ class SearchBar extends Component {
 
   handleStartDateChange(newDate) {
     this.setState({ startDate: moment.utc(newDate).format() });
-    console.log(moment.utc(newDate).utcOffset(+330).format());
+    console.log("startDate" + moment.utc(newDate).format());
   }
 
   changeVehicleStatus(value) {
@@ -63,25 +63,28 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <div style={{ display: "flex", flexDirection: "row" }}>
-        <p>StartDateTime:</p>
-        <Datetime
-          onChange={this.handleStartDateChange}
-          dateFormat="YYYY-MM-DD"
-          style={{ width: "20%" }}
-        />
+      <div style={{ display: "flex", flexDirection: "coloum",justifyContent:"center"}}>
 
-        <div style={{ display: "flex", flexDirection: "row", width: "100%" }}>
-          <p>EndDateTime:</p>
+        <div style={{ display: "flex", flexDirection: "row" ,flexWrap:"wrap",width:"20%",justifyContent:"center" }}>
+          <div>StartDateTime:</div>
           <Datetime
-            onChange={this.handleEndDateChange}
+            onChange={this.handleStartDateChange}
             dateFormat="YYYY-MM-DD"
-            style={{ width: "10%" }}
+            style={{ width: "100%" }}
           />
         </div>
 
-        <div style={{ display: "flex", flexDirection: "row", width: "50%" }}>
-          <label>Vehicle Status</label>
+        <div style={{ display: "flex", flexDirection: "row" ,flexWrap:"wrap",width:"20%",justifyContent:"center" }}>
+          <div>EndDateTime:</div>
+          <Datetime
+            onChange={this.handleEndDateChange}
+            dateFormat="YYYY-MM-DD"
+            style={{ width: "100%" }}
+          />
+        </div>
+
+        <div style={{ display: "flex", flexDirection: "row" ,flexWrap:"wrap",width:"20%",justifyContent:"center" }}>
+          <div>Vehicle Status</div>
 
           <select
             id="vehicleStatus"
@@ -89,6 +92,7 @@ class SearchBar extends Component {
             onChange={(e) => {
               this.changeVehicleStatus(e.target.value);
             }}
+            style={{width:"70%"}}
           >
             <option value="null">All</option>
             <option value="true">Inside</option>
@@ -96,8 +100,8 @@ class SearchBar extends Component {
           </select>
         </div>
 
-        <div style={{ display: "flex", flexDirection: "row", width: "50%" }}>
-          <p>VehicleType</p>
+        <div style={{ display: "flex", flexDirection: "row" ,flexWrap:"wrap",width:"20%",justifyContent:"center" }}>
+          <div>VehicleType</div>
 
           <select
             id="vehicleType"
@@ -105,6 +109,7 @@ class SearchBar extends Component {
             onChange={(e) => {
               this.vehicleChange(e.target.value);
             }}
+            style={{width:"70%"}}
           >
             <option value="null">All</option>
             <option value="BUS">Bus</option>
@@ -113,9 +118,11 @@ class SearchBar extends Component {
             <option value="TRUCK">Truck</option>
             <option value="OTHER">Other</option>
           </select>
-          <Button variant="primary" size="lg" block onClick={()=>this.passData()}>
+          <div style={{ display: "flex", flexDirection: "row" ,flexWrap:"wrap",width:"30%",justifyContent:"center" }}>
+          <Button variant="primary" size="sm" block onClick={()=>this.passData()}>
                 Submit
               </Button>
+          </div>    
         </div>
       </div>
     );

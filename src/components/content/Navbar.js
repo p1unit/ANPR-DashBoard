@@ -17,10 +17,10 @@ class NavBar extends React.Component {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto" navbar>
-            <Nav.Link href="#">sample link1</Nav.Link>
-            <Nav.Link href="#">sample link2</Nav.Link>
-            <Nav.Link href="#">sample link3</Nav.Link>
-            <Nav.Link href="#">sample link4</Nav.Link>
+            <Nav.Link href="http://www.knit.ac.in/">KNIT Website</Nav.Link>
+            <Nav.Link href="https://vahan.nic.in/nrservices/faces/user/searchstatus.xhtml">Vehicle Info</Nav.Link>
+            <Nav.Link href="http://uptransport.upsdc.gov.in/en-us/">RTO Website</Nav.Link>
+            <Nav.Link href="#"> Log Out </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

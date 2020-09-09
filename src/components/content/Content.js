@@ -5,8 +5,10 @@ import NavBar from "./Navbar";
 import AllVehicle from "../search/AllVehicle";
 import AddVehicle from "../addvechicle/AddVehicle";
 import HomeComponent from "../home/HomeComponent";
+import Team from "../team/team";
 import PendingComponent from "../pendingVehicles/pendingComponent";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import Login from "../login/Login";
 
 class Content extends React.Component {
 
@@ -19,7 +21,7 @@ class Content extends React.Component {
       <Route {...rest}
         render={props =>
           Auth ? ( <Component {...props} /> ) :  ( <Redirect to={ 
-            { pathname: "/"
+            { pathname: "/login"
           }}
       />)}
       />);
@@ -34,10 +36,12 @@ return (
     
     <Router>
       <Switch>
+        <Route exact path = "/login" component={Login}/>
         <PrivateRoute exact path='/home' component={HomeComponent}/>
         <PrivateRoute exact path="/addVehicle" component={AddVehicle}/>
         <PrivateRoute exact path="/allSearch" component={AllVehicle}/>
         <PrivateRoute exact path="/pendingVehicle" component={PendingComponent}/>
+        <PrivateRoute exact path="/team" component={Team}/>
       </Switch>
     </Router>
   </Container>

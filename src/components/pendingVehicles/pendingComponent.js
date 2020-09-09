@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PendingRow from './pendingRow';
 import API from '../../resources/API';
+import Loader from "../../resources/loader"
 
 class PendingComponent extends Component {
 
@@ -54,7 +55,7 @@ class PendingComponent extends Component {
             <div>
             {
                 this.state.loading ? 
-                (<div> Loading </div>) :
+                (<Loader></Loader>) :
 
                 <div style={{ display: "flex", flexDirection: "row",flexWrap:"wrap",justifyContent:"center" }}>
                     {   this.state.data.map((variant, idx) => (

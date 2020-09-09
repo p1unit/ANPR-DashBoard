@@ -91,7 +91,7 @@ class PendingRow extends Component {
                 <input
                     type="text"
                     ref="licenseNumber"
-                    value = {this.props.licenseNumber}
+                    defaultValue = {this.props.licenseNumber}
                     onChange={this.handleChange}
                     onError={this.handleError}
                     style={{ marginBottom: "20px", marginTop:"20px" }}

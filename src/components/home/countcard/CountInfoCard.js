@@ -3,6 +3,7 @@ import Card from "react-bootstrap/Card";
 import DoughnutGraph from "./DoughnutGraph";
 import LineGraph from "./LineGraph";
 import API from '../../../resources/API';
+import Loader from "../../../resources/loader";
 
 
 class CounterInfoCard extends Component {
@@ -40,7 +41,7 @@ componentDidMount() {
   render() {
 
     if(this.state.data==null)
-        return (<h1>Loading</h1>)
+        return (<Loader></Loader>)
 
     console.log(this.state.data);
 

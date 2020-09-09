@@ -1,14 +1,16 @@
 import React from "react";
-
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import logo from "../../logo.png";
 import {
   faHome,
-  faBriefcase,
-  faPaperPlane,
+  faAd,
+  faPlus,
+  faSearch,
+  faClock,
+  faUsers,
+  faMobile,
   faQuestion,
-  faImage,
-  faCopy,
-  faTimes,
+  faInfo,
 } from "@fortawesome/free-solid-svg-icons";
 import { Nav, Button } from "react-bootstrap";
 import classNames from "classnames";
@@ -24,7 +26,7 @@ class SideBar extends React.Component {
             style={{ color: "#fff" }}
             className="mt-4"
           >
-            <FontAwesomeIcon icon={faTimes} pull="right" size="xs" />
+            <FontAwesomeIcon icon={faAd} pull="right" size="xs" />
           </Button>
           <img
             alt=""
@@ -47,28 +49,28 @@ class SideBar extends React.Component {
 
           <Nav.Item>
             <Nav.Link href="/addVehicle">
-              <FontAwesomeIcon icon={faBriefcase} className="mr-2" />
+              <FontAwesomeIcon icon={faPlus} className="mr-2" />
               Add Vehicle
             </Nav.Link>
           </Nav.Item>
 
           <Nav.Item>
             <Nav.Link href="/allSearch">
-              <FontAwesomeIcon icon={faBriefcase} className="mr-2" />
+              <FontAwesomeIcon icon={faSearch} className="mr-2" />
               All vehicle Search
             </Nav.Link>
           </Nav.Item>
 
           <Nav.Item>
             <Nav.Link href="/pendingVehicle">
-              <FontAwesomeIcon icon={faBriefcase} className="mr-2" />
+              <FontAwesomeIcon icon={faClock} className="mr-2" />
               Pending Status
             </Nav.Link>
           </Nav.Item>
 
           <Nav.Item>
             <Nav.Link href="/">
-              <FontAwesomeIcon icon={faBriefcase} className="mr-2" />
+              <FontAwesomeIcon icon={faInfo} className="mr-2" />
               About
             </Nav.Link>
           </Nav.Item>
@@ -82,15 +84,15 @@ class SideBar extends React.Component {
 
           <Nav.Item>
             <Nav.Link href="/">
-              <FontAwesomeIcon icon={faPaperPlane} className="mr-2" />
+              <FontAwesomeIcon icon={faMobile} className="mr-2" />
               Contact
             </Nav.Link>
           </Nav.Item>
 
           <Nav.Item>
-            <Nav.Link href="/">
-              <FontAwesomeIcon icon={faImage} className="mr-2" />
-              Developers
+            <Nav.Link href="/team">
+              <FontAwesomeIcon icon={faUsers} className="mr-2" />
+              Team
             </Nav.Link>
           </Nav.Item>
         </Nav>
