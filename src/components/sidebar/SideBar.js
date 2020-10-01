@@ -3,14 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import logo from "../../logo.png";
 import {
   faHome,
-  faBriefcase,
-  faPaperPlane,
+  faAd,
+  faPlus,
+  faSearch,
+  faClock,
+  faUsers,
+  faMobile,
   faQuestion,
-  faImage,
-  faCopy,
-  faTimes,
+  faInfo,
 } from "@fortawesome/free-solid-svg-icons";
-import SubMenu from "./SubMenu";
 import { Nav, Button } from "react-bootstrap";
 import classNames from "classnames";
 
@@ -25,7 +26,7 @@ class SideBar extends React.Component {
             style={{ color: "#fff" }}
             className="mt-4"
           >
-            <FontAwesomeIcon icon={faTimes} pull="right" size="xs" />
+            <FontAwesomeIcon icon={faAd} pull="right" size="xs" />
           </Button>
           <img
             alt=""
@@ -40,32 +41,39 @@ class SideBar extends React.Component {
           <p className="ml-3">Services Board</p>
 
           <Nav.Item className="active">
-            <Nav.Link href="/">
+            <Nav.Link href="/home">
               <FontAwesomeIcon icon={faHome} className="mr-2" />
               Home
             </Nav.Link>
           </Nav.Item>
 
           <Nav.Item>
-            <Nav.Link href="/">
-              <FontAwesomeIcon icon={faBriefcase} className="mr-2" />
+            <Nav.Link href="/addVehicle">
+              <FontAwesomeIcon icon={faPlus} className="mr-2" />
               Add Vehicle
             </Nav.Link>
           </Nav.Item>
 
-          <SubMenu
-            title="Search"
-            icon={faCopy}
-            items={["Single Vehicle", "All Vehicle"]}
-          />
-
           <Nav.Item>
-            <Nav.Link href="/">
-              <FontAwesomeIcon icon={faBriefcase} className="mr-2" />
-              About
+            <Nav.Link href="/allSearch">
+              <FontAwesomeIcon icon={faSearch} className="mr-2" />
+              All vehicle Search
             </Nav.Link>
           </Nav.Item>
 
+          <Nav.Item>
+            <Nav.Link href="/pendingVehicle">
+              <FontAwesomeIcon icon={faClock} className="mr-2" />
+              Pending Status
+            </Nav.Link>
+          </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link href="/">
+              <FontAwesomeIcon icon={faInfo} className="mr-2" />
+              About
+            </Nav.Link>
+          </Nav.Item>
 
           <Nav.Item>
             <Nav.Link href="/">
@@ -76,18 +84,17 @@ class SideBar extends React.Component {
 
           <Nav.Item>
             <Nav.Link href="/">
-              <FontAwesomeIcon icon={faPaperPlane} className="mr-2" />
+              <FontAwesomeIcon icon={faMobile} className="mr-2" />
               Contact
             </Nav.Link>
           </Nav.Item>
 
           <Nav.Item>
-            <Nav.Link href="/">
-              <FontAwesomeIcon icon={faImage} className="mr-2" />
-              Developers
+            <Nav.Link href="/team">
+              <FontAwesomeIcon icon={faUsers} className="mr-2" />
+              Team
             </Nav.Link>
           </Nav.Item>
-
         </Nav>
       </div>
     );

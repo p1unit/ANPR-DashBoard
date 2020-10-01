@@ -14,7 +14,7 @@ class App extends React.Component {
       isMobile: true
     };
 
-    this.previousWidth = -1;
+    this.previousWidth = window.innerWidth;
   }
 
   updateWidth() {
